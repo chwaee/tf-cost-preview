@@ -1,0 +1,95 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.8",
+  "planned_values": {
+    "root_module": {
+      "resources": []
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_instance.created",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "created",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "instance_type": "t3.small"
+        }
+      }
+    },
+    {
+      "address": "aws_instance.resized",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "resized",
+      "change": {
+        "actions": ["update"],
+        "before": {
+          "instance_type": "t3.micro"
+        },
+        "after": {
+          "instance_type": "t3.large"
+        }
+      }
+    },
+    {
+      "address": "aws_instance.removed",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "removed",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "instance_type": "t3.medium"
+        },
+        "after": null
+      }
+    },
+    {
+      "address": "aws_instance.unchanged",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "unchanged",
+      "change": {
+        "actions": ["no-op"],
+        "before": {
+          "instance_type": "t3.xlarge"
+        },
+        "after": {
+          "instance_type": "t3.xlarge"
+        }
+      }
+    },
+    {
+      "address": "aws_instance.replaced",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "replaced",
+      "change": {
+        "actions": ["delete", "create"],
+        "before": {
+          "instance_type": "t3.micro"
+        },
+        "after": {
+          "instance_type": "m5.large"
+        }
+      }
+    },
+    {
+      "address": "data.aws_ami.ubuntu",
+      "mode": "data",
+      "type": "aws_ami",
+      "name": "ubuntu",
+      "change": {
+        "actions": ["read"],
+        "before": null,
+        "after": {
+          "id": "ami-abc"
+        }
+      }
+    }
+  ]
+}

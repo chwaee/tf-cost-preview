@@ -1,0 +1,192 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.8",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_instance.web",
+          "mode": "managed",
+          "type": "aws_instance",
+          "name": "web",
+          "values": {
+            "instance_type": "t3.micro",
+            "availability_zone": "us-east-1a"
+          }
+        }
+      ],
+      "child_modules": [
+        {
+          "address": "module.network",
+          "resources": [
+            {
+              "address": "module.network.aws_nat_gateway.main",
+              "mode": "managed",
+              "type": "aws_nat_gateway",
+              "name": "main",
+              "values": {
+                "subnet_id": "subnet-abc"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_instance.web",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "instance_type": "t3.micro",
+          "availability_zone": "us-east-1a"
+        },
+        "after_unknown": {
+          "id": true
+        }
+      }
+    },
+    {
+      "address": "aws_db_instance.primary",
+      "mode": "managed",
+      "type": "aws_db_instance",
+      "name": "primary",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "engine": "mysql",
+          "instance_class": "db.t3.micro",
+          "allocated_storage": 20,
+          "storage_type": "gp3",
+          "multi_az": false
+        }
+      }
+    },
+    {
+      "address": "aws_ebs_volume.data",
+      "mode": "managed",
+      "type": "aws_ebs_volume",
+      "name": "data",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "size": 100,
+          "type": "gp3"
+        }
+      }
+    },
+    {
+      "address": "aws_lb.main",
+      "mode": "managed",
+      "type": "aws_lb",
+      "name": "main",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "load_balancer_type": "application"
+        }
+      }
+    },
+    {
+      "address": "module.network.aws_nat_gateway.main",
+      "mode": "managed",
+      "type": "aws_nat_gateway",
+      "name": "main",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "subnet_id": "subnet-abc"
+        }
+      }
+    },
+    {
+      "address": "aws_eip.nat",
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "nat",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "instance": null,
+          "network_interface": null
+        }
+      }
+    },
+    {
+      "address": "aws_s3_bucket.logs",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "logs",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "bucket": "logs"
+        }
+      }
+    },
+    {
+      "address": "aws_lambda_function.api",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "api",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "function_name": "api",
+          "memory_size": 256
+        }
+      }
+    },
+    {
+      "address": "aws_route53_zone.main",
+      "mode": "managed",
+      "type": "aws_route53_zone",
+      "name": "main",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "example.com"
+        }
+      }
+    },
+    {
+      "address": "aws_secretsmanager_secret.db",
+      "mode": "managed",
+      "type": "aws_secretsmanager_secret",
+      "name": "db",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "db"
+        }
+      }
+    },
+    {
+      "address": "aws_vpc.main",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "main",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "cidr_block": "10.0.0.0/16"
+        }
+      }
+    }
+  ]
+}
