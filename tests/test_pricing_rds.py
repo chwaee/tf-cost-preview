@@ -1,7 +1,8 @@
 """RDS and Aurora rate card lookups."""
 
-from tests.support import planned
 from tf_cost.pricing.rds import quote_db_instance
+
+from tests.support import planned
 
 
 def _db(**values: object):

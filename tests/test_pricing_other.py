@@ -1,6 +1,5 @@
 """Rate cards other than EC2 and RDS."""
 
-from tests.support import planned
 from tf_cost.pricing.cache import quote_elasticache
 from tf_cost.pricing.cdn import quote_cloudfront
 from tf_cost.pricing.compute import quote_lambda
@@ -12,6 +11,8 @@ from tf_cost.pricing.messaging import quote_sns, quote_sqs
 from tf_cost.pricing.networking import quote_eip, quote_nat_gateway
 from tf_cost.pricing.security import quote_secret
 from tf_cost.pricing.storage import quote_dynamodb, quote_s3
+
+from tests.support import planned
 
 
 def test_ebs_rates_and_default_type():

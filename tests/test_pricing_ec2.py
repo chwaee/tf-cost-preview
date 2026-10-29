@@ -1,7 +1,8 @@
 """EC2 rate card lookups."""
 
-from tests.support import planned
 from tf_cost.pricing.ec2 import quote_instance
+
+from tests.support import planned
 
 NAMED = {
     "t3.micro": 7.59,
