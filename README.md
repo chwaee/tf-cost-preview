@@ -4,6 +4,15 @@ Estimate the monthly AWS run rate of a Terraform plan before apply. It reads `te
 
 Use it in a client review when the question is "what will this plan cost to run," not "what is the invoice."
 
+## Related tools
+
+| Tool | Use it for |
+| --- | --- |
+| [HarderAWS](https://github.com/chwaee/HarderAWS) | AWS security hardening Terraform |
+| [aws-health-audit](https://github.com/chwaee/aws-health-audit) | Read-only AWS account audit |
+| [secure-ci-templates](https://github.com/chwaee/secure-ci-templates) | GitHub Actions workflows for client repos |
+| [appliedaiconsulting.io](https://appliedaiconsulting.io) | Consulting services |
+
 ## Install
 
 Python 3.11 or newer.
